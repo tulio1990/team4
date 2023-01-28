@@ -4,10 +4,10 @@ function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
   if (cartItems == null) {
     console.log("Cart is empty");
-  }else{
-  //const htmlItems = cartItems.map((item) => cartItemTemplate(item));
-  const htmlItems = cartItemTemplate(cartItems);
-  document.querySelector(".product-list").innerHTML = htmlItems;
+  } else {
+    //const htmlItems = cartItems.map((item) => cartItemTemplate(item));
+    const htmlItems = cartItemTemplate(cartItems);
+    document.querySelector(".product-list").innerHTML = htmlItems;
   }
 }
 
