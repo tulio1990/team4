@@ -85,7 +85,7 @@ header {
   margin-top: -1.3em;
 }
 
-.logo--square>div {
+.logo--square > div {
   margin-top: -1.7em;
 }
 
@@ -231,7 +231,7 @@ button {
   border: 1px solid var(--light-grey);
   width: 50%;
   margin: 0.5em auto;
-  padding: .5em;
+  padding: 0.5em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -241,8 +241,8 @@ button {
   text-align: right;
 }
 
-div.newsletter-container>* {
-  margin: .5em 0;
+div.newsletter-container > * {
+  margin: 0.5em 0;
   text-align: center;
 }
 
@@ -260,13 +260,13 @@ div.newsletter-container>* {
   line-height: 1;
 }
 
-.newsletter-form [type=submit] {
+.newsletter-form [type="submit"] {
   background: var(--primary-color);
   border-color: var(--primary-color);
   color: var(--dark-grey);
 }
 
-[type=submit] {
+[type="submit"] {
   margin-bottom: 0;
   font-family: var(--font-headline);
   font-weight: normal;
@@ -278,7 +278,6 @@ div.newsletter-container>* {
   display: block;
   width: 100%;
 }
-
 
 /*End Newsletter Style*/
 
