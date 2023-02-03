@@ -4,10 +4,13 @@ function productCardTemplate(product) {
   if (product.Id != "989CG" && product.Id != "880RT"){
     return `<li class="product-card">
     <a href="product_pages/index.html?product=${product.Id}">
+    <picture>
+    <source media="(max-width: 499px)" srcset="${product.ImageSmall}">
     <img
       src="${product.Image}"
       alt="Image of ${product.Name}"
     />
+    <picture>
     <h3 class="card__brand">${product.Brand.Name}</h3>
     <h2 class="card__name">${product.Name}</h2>
     <p class="product-card__price">$${product.FinalPrice}</p></a>
