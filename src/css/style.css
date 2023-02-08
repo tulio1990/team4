@@ -280,6 +280,18 @@ div.newsletter-container > * {
 }
 
 /*End Newsletter Style*/
+/*Product Category*/
+
+#category ul{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  list-style: none;
+  text-align: center;
+}
+
+#category ul li a{
+text-decoration: none;
+}
 
 @media screen and (min-width: 500px) {
   body {
