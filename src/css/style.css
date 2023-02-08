@@ -25,6 +25,10 @@ body {
   color: var(--dark-grey);
 }
 
+div.cart-footer {
+  display: none;
+}
+
 img {
   max-width: 100%;
 }
