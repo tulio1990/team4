@@ -34,6 +34,7 @@ export default class ShoppingCart {
         document.querySelector(this.parentSelector).innerHTML = htmlItems.join("");
 
         this.renderCartTotal();
+        //this.itemsInBackpack();
       }
   }
 
@@ -51,4 +52,13 @@ export default class ShoppingCart {
     let displayTotal = document.querySelector(".cart-total");
     displayTotal.innerHTML = `Total: $${total}`;
   }
+
+  /*itemsInBackpack() {
+    const cartItems = getLocalStorage(this.key);
+    let lenghty = Object.keys(cartItems).length;
+    console.log(`Total of Items ${lenghty}`);*/
+
+    //let numberOfItems = document.querySelector(".numberOfItems");
+    //numberOfItems.innerHTML = lenghty;
+  //}
 }

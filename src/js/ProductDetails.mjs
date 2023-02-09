@@ -51,6 +51,8 @@ export default class ProductDetails {
     // then add the current product to the list
     cartContents.push(this.product);
     setLocalStorage("so-cart", cartContents);
+
+    this.itemsInBackpack();
   }
   renderProductDetails(selector) {
     const element = document.querySelector(selector);
@@ -58,5 +60,10 @@ export default class ProductDetails {
       "afterBegin",
       productDetailsTemplate(this.product)
     );
+  }
+  itemsInBackpack() {
+    const cartItems = getLocalStorage("so-cart");
+    let numberOfItems = Object.keys(cartItems).length;
+    console.log(`Total of Items ${numberOfItems}`);
   }
 }
