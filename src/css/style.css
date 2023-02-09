@@ -25,7 +25,7 @@ body {
   color: var(--dark-grey);
 }
 
-div.cart-footer {
+.cart-total-hide {
   display: none;
 }
 

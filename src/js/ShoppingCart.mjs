@@ -33,14 +33,22 @@ export default class ShoppingCart {
         const htmlItems = cartItems.map((item) => cartItemTemplate(item));
         document.querySelector(this.parentSelector).innerHTML = htmlItems.join("");
 
-        let displayTotal = document.querySelector(".cart-footer");
-        displayTotal.style.display = "block";
-        
-        let a = 0;
-        const precio = cartItems.map((item) => a +=item.FinalPrice);
-        console.log(precio);
-        
+        this.renderCartTotal();
       }
-    
+  }
+
+  renderCartTotal() {
+    let itemPrice = 0;
+    const cartItems = getLocalStorage(this.key);
+    const priceOfItems = cartItems.map((item) => itemPrice = item.FinalPrice);
+    //console.log(priceOfItems);
+        
+    let total = priceOfItems.reduce((acumulador, currentValue) => acumulador + currentValue, 0).toFixed(2);
+    //console.log(total);
+
+    let unhideTotal = document.querySelector(".cart-total-hide");
+    unhideTotal.style.display = "block";
+    let displayTotal = document.querySelector(".cart-total");
+    displayTotal.innerHTML = `Total: $${total}`;
   }
 }
