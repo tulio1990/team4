@@ -53,12 +53,12 @@ export default class ShoppingCart {
     displayTotal.innerHTML = `Total: $${total}`;
   }
 
-  /*itemsInBackpack() {
+  itemsInBackpack() {
     const cartItems = getLocalStorage(this.key);
     let lenghty = Object.keys(cartItems).length;
-    console.log(`Total of Items ${lenghty}`);*/
+    console.log(`Total of Items ${lenghty}`);
 
-    //let numberOfItems = document.querySelector(".numberOfItems");
-    //numberOfItems.innerHTML = lenghty;
-  //}
+    let numberOfItems = document.querySelector(".numberOfItems");
+    numberOfItems.innerHTML = lenghty;
+  }
 }

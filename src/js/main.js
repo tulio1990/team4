@@ -1,4 +1,5 @@
-import { loadHeaderFooter } from "./utils.mjs";
+import { loadHeaderFooter, itemsInBackpack } from "./utils.mjs";
+
 
 loadHeaderFooter();
-
+itemsInBackpack();

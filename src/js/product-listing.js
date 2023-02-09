@@ -44,8 +44,3 @@ if(selection.selectedIndex == 0){
 
     listing.init();
 };
-
-
-
-
-

@@ -70,3 +70,12 @@ export async function loadHeaderFooter() {
   renderWithTemplate(headerTemplate, headerElement);
   renderWithTemplate(footerTemplate, footerElement);
 }
+
+export function itemsInBackpack() {
+  const cartItems = getLocalStorage("so-cart");
+  let numberOfItems = Object.keys(cartItems).length;
+  console.log(`Total of Items ${numberOfItems}`);
+
+  let numberOfItemsHTML = document.querySelector(".numberOfItems");
+  numberOfItemsHTML.innerHTML = numberOfItems;
+}
