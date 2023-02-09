@@ -25,6 +25,10 @@ body {
   color: var(--dark-grey);
 }
 
+.cart-total-hide {
+  display: none;
+}
+
 img {
   max-width: 100%;
 }
