@@ -1,8 +1,8 @@
 import ProductData from "./ProductData.mjs";
 import ProductList from "./ProductList.mjs";
-import { loadHeaderFooter, getParam } from "./utils.mjs";
+import { loadHeaderFooter, itemsInBackpack, getParam } from "./utils.mjs";
 
-loadHeaderFooter();
+loadHeaderFooter().then(() => itemsInBackpack());
 
 const selection = document.getElementById("select-sort");
 // const selectO = new SelectOption("Name","Price", selection);
@@ -44,8 +44,3 @@ if(selection.selectedIndex == 0){
 
     listing.init();
 };
-
-
-
-
-

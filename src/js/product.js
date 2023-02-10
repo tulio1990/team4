@@ -1,8 +1,8 @@
-import { getParam, loadHeaderFooter } from "./utils.mjs";
+import { getParam, loadHeaderFooter, itemsInBackpack } from "./utils.mjs";
 import ProductData from "./ProductData.mjs";
 import ProductDetails from "./ProductDetails.mjs";
 
-loadHeaderFooter();
+loadHeaderFooter().then(() => itemsInBackpack());
 
 const dataSource = new ProductData();
 const productId = getParam("product");
