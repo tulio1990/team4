@@ -129,6 +129,21 @@ button {
 .cart:hover svg {
   fill: gray;
 }
+.cart a {
+  text-decoration: none;
+}
+.cart .numberOfItems {
+  background-color: #f0a868;
+  padding: 2px 7px;
+  border-radius: 10px;
+  position: absolute;
+  top: 5%;
+  left: 40%;
+}
+.numberOfItems:hover {
+  background-color: #b95905;
+  color: #fff;
+}
 
 /* End cart icon styles */
 
