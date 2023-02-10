@@ -133,6 +133,7 @@ button {
   text-decoration: none;
 }
 .cart .numberOfItems {
+  display: none;
   background-color: #f0a868;
   padding: 2px 7px;
   border-radius: 10px;

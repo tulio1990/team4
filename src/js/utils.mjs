@@ -76,5 +76,6 @@ export function itemsInBackpack() {
   let numberOfItems = Object.keys(cartItems).length;
 
   let numberOfItemsHTML = document.querySelector(".numberOfItems");
-  numberOfItemsHTML.innerHTML = numberOfItems;
+  numberOfItemsHTML.style.display = "block"
+  numberOfItemsHTML.innerHTML = numberOfItems;;
 }
