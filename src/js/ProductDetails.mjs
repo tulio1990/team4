@@ -1,4 +1,4 @@
-import { setLocalStorage, getLocalStorage } from "./utils.mjs";
+import { setLocalStorage, getLocalStorage, itemsInBackpack } from "./utils.mjs";
 
 function productDetailsTemplate(product) {
   return `<section class="product-detail"> <h3>${product.Brand.Name}</h3>
@@ -52,7 +52,7 @@ export default class ProductDetails {
     cartContents.push(this.product);
     setLocalStorage("so-cart", cartContents);
 
-    this.itemsInBackpack();
+    itemsInBackpack();
   }
   renderProductDetails(selector) {
     const element = document.querySelector(selector);
@@ -60,13 +60,5 @@ export default class ProductDetails {
       "afterBegin",
       productDetailsTemplate(this.product)
     );
-  }
-  itemsInBackpack() {
-    const cartItems = getLocalStorage("so-cart");
-    let numberOfItems = Object.keys(cartItems).length;
-    console.log(`Total of Items ${numberOfItems}`);
-
-    let numberOfItemsHTML = document.querySelector(".numberOfItems");
-    numberOfItemsHTML.innerHTML = numberOfItems;
   }
 }
