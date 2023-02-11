@@ -82,7 +82,7 @@ export function itemsInBackpack() {
 
 export function addClass(thing, className){ //create a function that takes a thing
   thing.classList.add(className); //and gives a class to the thing
-  let timerId = setTimeout(removeClass, 1200, thing, className)//set a timeout to remove the class from the thing 1.2 seconds later
+  setTimeout(removeClass, 1200, thing, className)//set a timeout to remove the class from the thing 1.2 seconds later
 };
 
 function removeClass(thing, className){ //create a function that takes a thing
