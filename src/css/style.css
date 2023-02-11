@@ -147,15 +147,25 @@ button {
 }
 
 .sproing {
-  animation: sproing .8s ease-in-out forwards;
+  animation: sproing 0.8s ease-in-out forwards;
 }
 
 @keyframes sproing {
-  0% {transform: scale(1.4);}
-  25% {transform:translateX(10px);}
-  50% {transform:translateX(-8px);}
-  75% {transform:translateX(6px);}
-  100% { transform:translateX(0);}
+  0% {
+    transform: scale(1.4);
+  }
+  25% {
+    transform: translateX(10px);
+  }
+  50% {
+    transform: translateX(-8px);
+  }
+  75% {
+    transform: translateX(6px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 /* End cart icon styles */
@@ -314,15 +324,15 @@ div.newsletter-container > * {
 /*End Newsletter Style*/
 /*Product Category*/
 
-#category ul{
+#category ul {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   list-style: none;
   text-align: center;
 }
 
-#category ul li a{
-text-decoration: none;
+#category ul li a {
+  text-decoration: none;
 }
 
 @media screen and (min-width: 500px) {

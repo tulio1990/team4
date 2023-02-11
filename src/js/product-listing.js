@@ -10,37 +10,42 @@ const selection = document.getElementById("select-sort");
 const btn = document.getElementById("btn");
 
 btn.onclick = (event) => {
-    event.preventDefault();
-    // show the selected index
-    if(selection.selectedIndex == 0){
-        const category = getParam("category");
-        const dataSource = new ProductData();
-        const element = document.querySelector(".product-list");
-        const listing = new ProductList(category, dataSource, element, "Name");
-
-        listing.init();
-    }else{
-        const category = getParam("category");
-        const dataSource = new ProductData();
-        const element = document.querySelector(".product-list");
-        const listing = new ProductList(category, dataSource, element, "FinalPrice");
-
-        listing.init();
-    };
-};
-
-if(selection.selectedIndex == 0){
+  event.preventDefault();
+  // show the selected index
+  if (selection.selectedIndex == 0) {
     const category = getParam("category");
-        const dataSource = new ProductData();
-        const element = document.querySelector(".product-list");
-        const listing = new ProductList(category, dataSource, element, "Name");
+    const dataSource = new ProductData();
+    const element = document.querySelector(".product-list");
+    const listing = new ProductList(category, dataSource, element, "Name");
 
     listing.init();
-}else{
-        const category = getParam("category");
-        const dataSource = new ProductData();
-        const element = document.querySelector(".product-list");
-        const listing = new ProductList(category, dataSource, element, "FinalPrice");
+  } else {
+    const category = getParam("category");
+    const dataSource = new ProductData();
+    const element = document.querySelector(".product-list");
+    const listing = new ProductList(
+      category,
+      dataSource,
+      element,
+      "FinalPrice"
+    );
 
     listing.init();
+  }
 };
+
+if (selection.selectedIndex == 0) {
+  const category = getParam("category");
+  const dataSource = new ProductData();
+  const element = document.querySelector(".product-list");
+  const listing = new ProductList(category, dataSource, element, "Name");
+
+  listing.init();
+} else {
+  const category = getParam("category");
+  const dataSource = new ProductData();
+  const element = document.querySelector(".product-list");
+  const listing = new ProductList(category, dataSource, element, "FinalPrice");
+
+  listing.init();
+}
