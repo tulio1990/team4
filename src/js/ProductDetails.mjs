@@ -1,4 +1,4 @@
-import { setLocalStorage, getLocalStorage, itemsInBackpack } from "./utils.mjs";
+import { setLocalStorage, getLocalStorage, itemsInBackpack, addClass } from "./utils.mjs";
 
 function productDetailsTemplate(product) {
   return `<section class="product-detail"> <h3>${product.Brand.Name}</h3>
@@ -44,6 +44,8 @@ export default class ProductDetails {
   }
   addToCart() {
     let cartContents = getLocalStorage("so-cart");
+    let cartIcon = document.querySelector(".cart");//find the Cart icon
+    addClass(cartIcon, "sproing");//make the cart icon jiggle
     //check to see if there was anything there
     if (!cartContents) {
       cartContents = [];
@@ -62,3 +64,4 @@ export default class ProductDetails {
     );
   }
 }
+
