@@ -1,4 +1,4 @@
-import ProductData from "./ProductData.mjs";
+import ExternalServices from "./ExternalServices.mjs";
 import ProductList from "./ProductList.mjs";
 import { loadHeaderFooter, itemsInBackpack, getParam } from "./utils.mjs";
 
@@ -14,14 +14,14 @@ btn.onclick = (event) => {
   // show the selected index
   if (selection.selectedIndex == 0) {
     const category = getParam("category");
-    const dataSource = new ProductData();
+    const dataSource = new ExternalServices();
     const element = document.querySelector(".product-list");
     const listing = new ProductList(category, dataSource, element, "Name");
 
     listing.init();
   } else {
     const category = getParam("category");
-    const dataSource = new ProductData();
+    const dataSource = new ExternalServices();
     const element = document.querySelector(".product-list");
     const listing = new ProductList(
       category,
@@ -36,14 +36,14 @@ btn.onclick = (event) => {
 
 if (selection.selectedIndex == 0) {
   const category = getParam("category");
-  const dataSource = new ProductData();
+  const dataSource = new ExternalServices();
   const element = document.querySelector(".product-list");
   const listing = new ProductList(category, dataSource, element, "Name");
 
   listing.init();
 } else {
   const category = getParam("category");
-  const dataSource = new ProductData();
+  const dataSource = new ExternalServices();
   const element = document.querySelector(".product-list");
   const listing = new ProductList(category, dataSource, element, "FinalPrice");
 
