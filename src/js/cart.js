@@ -1,7 +1,7 @@
 import {
   getLocalStorage,
   loadHeaderFooter,
-  itemsInBackpack,
+  itemsInBackpack
 } from "./utils.mjs";
 import ShoppingCart from "./ShoppingCart.mjs";
 
