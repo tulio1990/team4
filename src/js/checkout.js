@@ -3,7 +3,14 @@ import CheckoutProcess from "./CheckoutProcess.mjs";
 
 loadHeaderFooter().then(() => itemsInBackpack());
 
-const checkout = new CheckoutProcess("so-cart", ".checkoutSummary")
-checkout.init();
+const myCheckout = new CheckoutProcess("so-cart", ".checkoutSummary")
+myCheckout.init();
 
-document.querySelector("#zipCode").addEventListener("blur", checkout.calculateOrdertotal.bind(checkout));
+document.querySelector("#zip").addEventListener("blur", myCheckout.calculateOrdertotal.bind(myCheckout));
+
+// listening for click on the button
+document.querySelector("#checkoutSubmit").addEventListener("click", (e) => {
+    e.preventDefault();
+  
+    myCheckout.checkout();
+  });
