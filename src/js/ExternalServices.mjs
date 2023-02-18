@@ -1,4 +1,4 @@
-const baseURL = "http://server-nodejs.cit.byui.edu:3000/";
+const baseURL = "https://wdd330-backend.onrender.com/";
 function convertToJson(res) {
   if (res.ok) {
     return res.json();
@@ -7,7 +7,7 @@ function convertToJson(res) {
   }
 }
 
-export default class ProductData {
+export default class ExternalServices {
   constructor(category) {
     // this.category = category;
     // this.path = `../json/${this.category}.json`;
@@ -23,4 +23,15 @@ export default class ProductData {
     const data = await convertToJson(response);
     return data.Result;
   }
+  async checkout(payload) {
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    };
+    return await fetch(baseURL + "checkout/", options).then(convertToJson); 
+  }
 }
+
