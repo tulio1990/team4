@@ -53,7 +53,7 @@ export default class ProductDetails {
     // then add the current product to the list
     cartContents.push(this.product);
     setLocalStorage("so-cart", cartContents);
-
+    alert("Great! Your item has been added to the cart")
     itemsInBackpack();
   }
   renderProductDetails(selector) {
