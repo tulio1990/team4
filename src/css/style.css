@@ -335,6 +335,8 @@ div.newsletter-container > * {
   text-decoration: none;
 }
 
+/* End Product Category */
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
