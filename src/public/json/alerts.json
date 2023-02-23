@@ -1,0 +1,17 @@
+[
+    {
+        "message": "This is only a test",
+        "background": "darkblue",
+        "color": "white"
+    },
+    {
+        "message": "Friday Sale",
+        "background": "grey",
+        "color": "gren"
+    },
+    {
+        "message": "New Products",
+        "background": "yellow",
+        "color": "black"
+    }
+]

@@ -1,5 +1,8 @@
 import { setLocalStorage, getLocalStorage, itemsInBackpack, addClass } from "./utils.mjs";
 
+import Alert from "./Alert.mjs";
+Alert();
+
 function productDetailsTemplate(product) {
   return `<section class="product-detail"> <h3>${product.Brand.Name}</h3>
     <h2 class="divider">${product.NameWithoutBrand}</h2>
