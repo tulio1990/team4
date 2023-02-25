@@ -35,8 +35,15 @@ img {
 
 header {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   padding: 0 10px;
+}
+
+header::after {
+  content: "";
+  width: 100%;
+  order: 1;
 }
 
 .logo {
@@ -91,6 +98,18 @@ header {
 
 .logo--square > div {
   margin-top: -1.7em;
+}
+
+.alert-list {
+  order: 2;
+  width: 100%;
+  border-top: 2px solid var(--primary-color);
+}
+
+.alert-list p {
+  margin: 2px 0;
+  padding: 8px;
+  text-align: center;
 }
 
 /* utility classes */
