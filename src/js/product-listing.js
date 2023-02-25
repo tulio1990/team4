@@ -4,8 +4,10 @@ import { loadHeaderFooter, itemsInBackpack, getParam } from "./utils.mjs";
 
 loadHeaderFooter().then(() => itemsInBackpack());
 
-import Alert from "./Alert.mjs";
-Alert();
+import Alerts from "./Alert.mjs";
+
+const alerts = new Alerts();
+alerts.convertToJson();
 
 const selection = document.getElementById("select-sort");
 // const selectO = new SelectOption("Name","Price", selection);

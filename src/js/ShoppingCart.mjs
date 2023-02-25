@@ -51,7 +51,9 @@ export default class ShoppingCart {
     let itemPrice = 0;
     const cartItems = getLocalStorage(this.key);
     const priceOfItems = cartItems.map((item) => itemPrice = item.FinalPrice);
-    //console.log(priceOfItems);
+    console.log(cartItems);
+    console.log(priceOfItems[1]);
+    console.log(priceOfItems[2]);
         
     let total = priceOfItems.reduce((acumulador, currentValue) => acumulador + currentValue, 0).toFixed(2);
     //console.log(total);

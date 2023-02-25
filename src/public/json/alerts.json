@@ -1,17 +1,17 @@
 [
-    {
-        "message": "This is only a test",
-        "background": "darkblue",
-        "color": "white"
-    },
-    {
-        "message": "Friday Sale",
-        "background": "grey",
-        "color": "gren"
-    },
-    {
-        "message": "New Products",
-        "background": "yellow",
-        "color": "black"
-    }
+  {
+    "message": "Save 10% when you pay with your rewards card",
+    "background": "#d0d0d0",
+    "color": "#525b0f"
+  },
+  {
+    "message": "Buy a tent and get a free sleeping bag",
+    "background": "#f0a868",
+    "color": "#303030"
+  },
+  {
+    "message": "Get special discounts for referring new customers",
+    "background": "#a4b8c4",
+    "color": "#303030"
+  }
 ]
