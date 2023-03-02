@@ -1,6 +1,7 @@
 import { setLocalStorage, getLocalStorage, itemsInBackpack, addClass } from "./utils.mjs";
 
 function productDetailsTemplate(product) {
+  const discount = ((product.SuggestedRetailPrice - product.FinalPrice) / product.SuggestedRetailPrice) * 100;
   return `<section class="product-detail"> <h3>${product.Brand.Name}</h3>
     <h2 class="divider">${product.NameWithoutBrand}</h2>
     <picture>
@@ -11,7 +12,9 @@ function productDetailsTemplate(product) {
       alt="${product.NameWithoutBrand}"
     />
     <picture>
-    <p class="product-card__price">$${product.FinalPrice}</p>
+    <p class="product-card__price">$${(product.FinalPrice).toFixed(2)}</p>
+    <p class="product-card__discount">${(discount).toFixed(0)}% off</p>
+    <p class="product-card__RegPrice">Reg: $${(product.SuggestedRetailPrice).toFixed(2)}</p>
     <p class="product__color">${product.Colors[0].ColorName}</p>
     <p class="product__description">
     ${product.DescriptionHtmlSimple}
@@ -26,6 +29,7 @@ export default class ProductDetails {
     this.productId = productId;
     this.product = {};
     this.dataSource = dataSource;
+    this.discount = "";
   }
   async init() {
     // use our datasource to get the details for the current product. findProductById will return a promise! use await or .then() to process it
