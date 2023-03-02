@@ -14,9 +14,9 @@ function productCardTemplate(product) {
     <picture>
     <h3 class="card__brand">${product.Brand.Name}</h3>
     <h2 class="card__name">${product.Name}</h2>
-    <p class="product-card__price">$${(product.FinalPrice).toFixed(2)}</p></a>
+    <p class="product-card__price">$${(product.FinalPrice).toFixed(2)}</p>
     <p class="product-card__discount">${(discount).toFixed(0)}% off</p>
-    <p class="product-card__RegPrice">Reg: $${(product.SuggestedRetailPrice).toFixed(2)}</p>
+    <p class="product-card__RegPrice">Reg: $${(product.SuggestedRetailPrice).toFixed(2)}</p></a>
   </li>`;
   }
 
