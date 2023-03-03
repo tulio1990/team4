@@ -112,11 +112,13 @@ export default class ProductDetails {
   handleCommentSubmit(event) {
     event.preventDefault();
     const commentInput = document.getElementById("comment");
-    const comment = commentInput.value;
-    this.comments.push(comment);
-    setLocalStorage(`product-${this.productId}-comments`, this.comments);
-    this.renderComments();
-    commentInput.value = "";
+    const comment = commentInput.value.trim();
+    if (comment) {
+      this.comments.push(comment);
+      setLocalStorage(`product-${this.productId}-comments`, this.comments);
+      this.renderComments();
+      commentInput.value = "";
+    }
   }
 
   renderComments() {
