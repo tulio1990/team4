@@ -274,8 +274,6 @@ p.cart-total {
   border: 1px solid var(--light-grey);
   max-width: 250px;
   text-align: center;
-  display: flex;
-  align-items: center;
   transition: .5s ease-in-out;
 }
 
@@ -299,6 +297,21 @@ p.cart-total {
   font-size: 1em;
 }
 
+.product-card-buttons {
+  display: flex;
+  justify-content: center;
+}
+.product-card-buttons button {
+  padding: 0;
+  background-color: transparent;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.card-buttons {
+  padding: 5px 8px;
+  width: 40px;
+}
 
 p.product-card__price {
   font-size: var(--large-font);
