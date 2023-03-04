@@ -149,11 +149,9 @@ button {
 .cart:hover svg {
   fill: gray;
 }
-
 .cart a {
   text-decoration: none;
 }
-
 .cart .numberOfItems {
   display: none;
   background-color: #f0a868;
@@ -163,7 +161,6 @@ button {
   top: 5%;
   left: 40%;
 }
-
 .numberOfItems:hover {
   background-color: #b95905;
   color: #fff;
@@ -177,19 +174,15 @@ button {
   0% {
     transform: scale(1.4);
   }
-
   25% {
     transform: translateX(10px);
   }
-
   50% {
     transform: translateX(-8px);
   }
-
   75% {
     transform: translateX(6px);
   }
-
   100% {
     transform: translateX(0);
   }
@@ -246,7 +239,6 @@ section.checkout-form form input {
 label {
   margin-top: 0.6rem;
 }
-
 /*End Checkout Style*/
 .mission {
   padding: 0 0.5em;
@@ -284,12 +276,12 @@ p.cart-total {
   text-align: center;
   display: flex;
   align-items: center;
-  transition: 0.5s ease-in-out;
+  transition: .5s ease-in-out;
 }
 
 .product-card:hover {
   background: aliceblue;
-  transform: scale(1.1);
+  transform: scale(1.10);
   box-shadow: 0 0 25px rgb(0 0 0 / 50%);
 }
 
@@ -307,12 +299,12 @@ p.cart-total {
   font-size: 1em;
 }
 
+
 p.product-card__price {
   font-size: var(--large-font);
   font-weight: 700;
   color: var(--secondary-color);
 }
-
 p.product-card__discount {
   font-size: var(--font-base);
   background: var(--tertiary-color);
@@ -320,7 +312,6 @@ p.product-card__discount {
   color: var(--dark-grey);
   display: inline;
 }
-
 p.product-card__RegPrice {
   font-size: var(--small-font);
   text-decoration: line-through 1px #f0a868;
@@ -464,7 +455,6 @@ textarea#comment {
   margin-bottom: 0;
 }
 
-/* End Product Comments */
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;

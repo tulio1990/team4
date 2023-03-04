@@ -1,9 +1,4 @@
-import {
-  setLocalStorage,
-  getLocalStorage,
-  itemsInBackpack,
-  addClass
-} from "./utils.mjs";
+import { setLocalStorage, getLocalStorage, itemsInBackpack, addClass } from "./utils.mjs";
 
 function productDetailsTemplate(product) {
   const discount = ((product.SuggestedRetailPrice - product.FinalPrice) / product.SuggestedRetailPrice) * 100;
@@ -39,12 +34,10 @@ export default class ProductDetails {
     this.productId = productId;
     this.product = {};
     this.dataSource = dataSource;
-    this.comments = [];
-    this.commentList = null;
-    this.commentForm = null;
+    this.discount = "";
   }
-
   async init() {
+    // use our datasource to get the details for the current product. findProductById will return a promise! use await or .then() to process it
     this.product = await this.dataSource.findProductById(this.productId);
     this.renderProductDetails("main");
     document.getElementById("addToCart").addEventListener("click", this.addToCart.bind(this));
@@ -61,46 +54,25 @@ export default class ProductDetails {
       productDetailsTemplate(this.product)
     );
   }
-
   addToCart() {
     let cartContents = getLocalStorage("so-cart");
-    let cartIcon = document.querySelector(".cart");
-    addClass(cartIcon, "sproing");
+    let cartIcon = document.querySelector(".cart");//find the Cart icon
+    addClass(cartIcon, "sproing");//make the cart icon jiggle
+    //check to see if there was anything there
     if (!cartContents) {
       cartContents = [];
     }
+    // then add the current product to the list
     cartContents.push(this.product);
     setLocalStorage("so-cart", cartContents);
-    alert("Great! Your item has been added to the cart");
+    alert("Great! Your item has been added to the cart")
     itemsInBackpack();
   }
-
-  loadComments() {
-    const comments = getLocalStorage(`product-${this.productId}-comments`);
-    if (comments) {
-      this.comments = comments;
-      this.renderComments();
-    }
-  }
-
-  handleCommentSubmit(event) {
-    event.preventDefault();
-    const commentInput = document.getElementById("comment");
-    const comment = commentInput.value.trim();
-    if (comment) {
-      this.comments.push(comment);
-      setLocalStorage(`product-${this.productId}-comments`, this.comments);
-      this.renderComments();
-      commentInput.value = "";
-    }
-  }
-
-  renderComments() {
-    this.commentList.innerHTML = "";
-    for (const comment of this.comments) {
-      const li = document.createElement("li");
-      li.innerText = comment;
-      this.commentList.appendChild(li);
-    }
+  renderProductDetails(selector) {
+    const element = document.querySelector(selector);
+    element.insertAdjacentHTML(
+      "afterBegin",
+      productDetailsTemplate(this.product)
+    );
   }
 }
