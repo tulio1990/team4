@@ -6,7 +6,7 @@ function productCardTemplate(product) {
     return `<li class="product-card">
     <a href="../product_pages/index.html?product=${product.Id}">
     <picture>
-    <source media="(max-width: 499px)" srcset="${product.ImageSmall}">
+    <source media="(max-width: 389px)" srcset="${product.ImageSmall}">
     <img
       src="${product.Images.PrimaryMedium}"
       alt="Image of ${product.Name}"

@@ -6,21 +6,19 @@ import {
 } from "./utils.mjs";
 
 function productDetailsTemplate(product) {
-  return `<section class="product-detail"> <h3>${product.Brand.Name}</h3>
+  const discount = ((product.SuggestedRetailPrice - product.FinalPrice) / product.SuggestedRetailPrice) * 100;
+  return `<section class="product-detail">
+    <h3>${product.Brand.Name}</h3>
     <h2 class="divider">${product.NameWithoutBrand}</h2>
     <picture>
-    <source media="(max-width: 499px)" srcset="${product.ImageSmall}">
-    <img
-      class="divider"
-      src="${product.Images.PrimaryLarge}"
-      alt="${product.NameWithoutBrand}"
-    />
-    <picture>
-    <p class="product-card__price">$${product.FinalPrice}</p>
+      <source media="(max-width: 499px)" srcset="${product.ImageSmall}">
+      <img class="divider" src="${product.Images.PrimaryLarge}" alt="${product.NameWithoutBrand}" />
+    </picture>
+    <p class="product-card__price">$${(product.FinalPrice).toFixed(2)}</p>
+    <p class="product-card__discount">${(discount).toFixed(0)}% off</p>
+    <p class="product-card__RegPrice">Reg: $${(product.SuggestedRetailPrice).toFixed(2)}</p>
     <p class="product__color">${product.Colors[0].ColorName}</p>
-    <p class="product__description">
-    ${product.DescriptionHtmlSimple}
-    </p>
+    <p class="product__description">${product.DescriptionHtmlSimple}</p>
     <div class="product-detail__add">
       <button id="addToCart" data-id="${product.Id}">Add to Cart</button>
     </div>
@@ -29,12 +27,11 @@ function productDetailsTemplate(product) {
       <ul class="comment-list"></ul>
       <form class="comment-form">
         <label for="comment">Add a comment:</label>
-
         <textarea id="comment" name="comment"></textarea>
         <button type="submit">Submit</button>
       </form>
     </div>
-    </section>`;
+  </section>`;
 }
 
 export default class ProductDetails {
@@ -49,7 +46,7 @@ export default class ProductDetails {
 
   async init() {
     this.product = await this.dataSource.findProductById(this.productId);
-    this.renderProductDetails();
+    this.renderProductDetails("main");
     document.getElementById("addToCart").addEventListener("click", this.addToCart.bind(this));
     this.commentList = document.querySelector(".comment-list");
     this.commentForm = document.querySelector(".comment-form");
@@ -57,34 +54,11 @@ export default class ProductDetails {
     this.commentForm.addEventListener("submit", this.handleCommentSubmit.bind(this));
   }
 
-  renderProductDetails() {
-    const element = document.querySelector("main");
+  renderProductDetails(selector) {
+    const element = document.querySelector(selector);
     element.insertAdjacentHTML(
       "afterBegin",
-      `<section class="product-detail">
-        <h3>${this.product.Brand.Name}</h3>
-        <h2 class="divider">${this.product.NameWithoutBrand}</h2>
-        <picture>
-          <source media="(max-width: 499px)" srcset="${this.product.ImageSmall}">
-          <img class="divider" src="${this.product.Images.PrimaryLarge}" alt="${this.product.NameWithoutBrand}">
-        </picture>
-        <p class="product-card__price">$${this.product.FinalPrice}</p>
-        <p class="product__color">${this.product.Colors[0].ColorName}</p>
-        <p class="product__description">${this.product.DescriptionHtmlSimple}</p>
-        <div class="product-detail__add">
-          <button id="addToCart" data-id="${this.product.Id}">Add to Cart</button>
-        </div>
-        <div class="product-detail__comments">
-          <h3 id="h3Comments">Comments</h3>
-          <ul class="comment-list"></ul>
-          <form class="comment-form">
-            <label for="comment">Add a comment:</label>
-            
-            <textarea id="comment" name="comment"></textarea>
-            <button type="submit">Submit</button>
-          </form>
-        </div>
-      </section>`
+      productDetailsTemplate(this.product)
     );
   }
 
