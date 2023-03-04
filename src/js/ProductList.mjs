@@ -61,19 +61,57 @@ export default class ProductList {
     renderListWithTemplate(productCardTemplate, this.listElement, list);
     this.gettingIDs();
   }
+
   gettingIDs(){
     const card_buttons = document.querySelectorAll(".card-buttons");
     card_buttons.forEach((card_button) => {
       card_button.addEventListener("click", (event) => {
         const ModalId = event.target.id;
-        console.log(ModalId);
-        this.displayingModal(ModalId);
+        this.displayingModal(ModalId).then(() => this.closingModal());
       })
     })
   }
+
   async displayingModal(ModalId){
     const productModal = await this.dataSource.findProductById(ModalId);
-      console.log(productModal);
-      alert("Thank you!");
+    const modalBody = this.modalTemplate(productModal);
+    const parentElement = document.querySelector(".divider");
+    parentElement.insertAdjacentHTML('beforeend', modalBody);
   };
+
+  closingModal() {
+    const closeBtn = document.querySelector('.closeButton');
+    const modalContainer = document.querySelector("#modalContainer");
+    closeBtn.addEventListener('click', () => {
+      modalContainer.remove();
+    });
+
+    window.addEventListener('click', (event) => {
+      const modalOutside = document.querySelector(".modal");
+      if (event.target == modalOutside) {
+        modalContainer.remove();
+      }
+    });
+}
+
+  modalTemplate(productModal){
+    const discount = ((productModal.SuggestedRetailPrice - productModal.FinalPrice) / productModal.SuggestedRetailPrice) * 100;
+    const modalBodyTemplate = `
+      <div id="modalContainer" class="modal">
+        <div class="modalContent">
+          <span class="closeButton">X</span>
+          <a href="../product_pages/index.html?product=${productModal.Id}">
+            <picture>
+              <source media="(max-width: 499px)" srcset="${productModal.ImageSmall}">
+              <img src="${productModal.Images.PrimaryMedium}" alt="Image of ${productModal.Name}"/>
+            <picture></a>
+          <h3 class="card__brand">${productModal.Brand.Name}</h3>
+          <h2 class="card__name">${productModal.Name}</h2>
+          <p class="product-card__price">$${(productModal.FinalPrice).toFixed(2)}</p>
+          <p class="product-card__discount">"$${(discount).toFixed(0)}"% off</p>
+          <p class="product-card__RegPrice">Reg: $${(productModal.SuggestedRetailPrice).toFixed(2)}</p>            <p class="product__description">${productModal.DescriptionHtmlSimple}</p>
+        </div>
+      </div>`
+    return modalBodyTemplate;
+  }
 }

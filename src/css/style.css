@@ -332,6 +332,37 @@ p.product-card__RegPrice {
 }
 
 /* End product list card */
+/* Start product modal */
+.modal {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: auto;
+  background: rgba(0,0,0,0.5);
+}
+.modalContent {
+  background: aliceblue;
+  margin: 3% auto;
+  padding: 30px;
+  width: 75%;
+  box-shadow: 0 5px 8px 0 rgba(0,0,0,0.5);
+  text-align: center;
+}
+.closeButton {
+  color: #ccc;
+  float: right;
+  font-size: 30px;
+}
+.closeButton:hover, .closeButton:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+/* End product modal */
 
 .product-detail {
   padding: 1em;
@@ -489,3 +520,4 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+
