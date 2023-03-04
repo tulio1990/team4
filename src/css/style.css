@@ -313,6 +313,13 @@ p.cart-total {
   width: 40px;
 }
 
+.wishOn {
+  filter: invert(10%) sepia(100%) saturate(7500%) hue-rotate(360deg) brightness(103%) contrast(120%);
+}
+/* .yellow {
+  filter: invert(87%) sepia(38%) saturate(1725%) hue-rotate(350deg) brightness(111%) contrast(111%);
+} */
+
 p.product-card__price {
   font-size: var(--large-font);
   font-weight: 700;
@@ -520,4 +527,3 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
-

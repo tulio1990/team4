@@ -13,9 +13,9 @@ function productCardTemplate(product) {
     />
     <picture></a>
     <section class="product-card-buttons">
-      <button><img class="card-buttons" id="${product.Id}" src="../images/icon_watch.svg" alt="icon for lookup"></button>
-      <button><img class="card-buttons" id="${product.SuggestedRetailPrice}" src="../images/icon_comment.svg" alt="icon for comment"></button>
-      <button><img class="card-buttons" id="${product.FinalPrice}" src="../images/icon_wish.svg" alt="icon for wish"></button>
+      <button><img class="card-buttons lookup-buttons" id="${product.Id}" src="../images/icon_watch.svg" alt="icon for lookup"></button>
+      <button><img class="card-buttons comment-buttons" src="../images/icon_comment.svg" alt="icon for comment"></button>
+      <button><img class="card-buttons wish-buttons" id="${product.Id}" src="../images/icon_wish.svg" alt="icon for wish"></button>
     </section>
     <h3 class="card__brand">${product.Brand.Name}</h3>
     <h2 class="card__name">${product.Name}</h2>
@@ -60,12 +60,13 @@ export default class ProductList {
   renderList(list) {
     renderListWithTemplate(productCardTemplate, this.listElement, list);
     this.gettingIDs();
+    this.addingWish();
   }
 
   gettingIDs(){
-    const card_buttons = document.querySelectorAll(".card-buttons");
-    card_buttons.forEach((card_button) => {
-      card_button.addEventListener("click", (event) => {
+    const lookupButtons = document.querySelectorAll(".lookup-buttons");
+    lookupButtons.forEach((lookupButton) => {
+      lookupButton.addEventListener("click", (event) => {
         const ModalId = event.target.id;
         this.displayingModal(ModalId).then(() => this.closingModal());
       })
@@ -92,8 +93,7 @@ export default class ProductList {
         modalContainer.remove();
       }
     });
-}
-
+  }
   modalTemplate(productModal){
     const discount = ((productModal.SuggestedRetailPrice - productModal.FinalPrice) / productModal.SuggestedRetailPrice) * 100;
     const modalBodyTemplate = `
@@ -113,5 +113,24 @@ export default class ProductList {
         </div>
       </div>`
     return modalBodyTemplate;
+  }
+  
+  addingWish() {
+    const wishButtons = document.querySelectorAll(".wish-buttons");
+    wishButtons.forEach((wishButton) => {
+      const wishId = wishButton.id;
+      if (localStorage.getItem(wishId)) {
+        wishButton.classList.add("wishOn");
+      }
+      wishButton.addEventListener("click", ()=> {
+        if (wishButton.classList.contains("wishOn")) {
+          wishButton.classList.remove("wishOn");
+          localStorage.removeItem(wishId);
+        } else {
+          wishButton.classList.add("wishOn");
+          localStorage.setItem(wishId, "true");
+        }
+      })
+    })
   }
 }
