@@ -274,8 +274,6 @@ p.cart-total {
   border: 1px solid var(--light-grey);
   max-width: 250px;
   text-align: center;
-  display: flex;
-  align-items: center;
   transition: .5s ease-in-out;
 }
 
@@ -299,6 +297,28 @@ p.cart-total {
   font-size: 1em;
 }
 
+.product-card-buttons {
+  display: flex;
+  justify-content: center;
+}
+.product-card-buttons button {
+  padding: 0;
+  background-color: transparent;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.card-buttons {
+  padding: 5px 8px;
+  width: 40px;
+}
+
+.wishOn {
+  filter: invert(10%) sepia(100%) saturate(7500%) hue-rotate(360deg) brightness(103%) contrast(120%);
+}
+/* .yellow {
+  filter: invert(87%) sepia(38%) saturate(1725%) hue-rotate(350deg) brightness(111%) contrast(111%);
+} */
 
 p.product-card__price {
   font-size: var(--large-font);
@@ -319,6 +339,37 @@ p.product-card__RegPrice {
 }
 
 /* End product list card */
+/* Start product modal */
+.modal {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: auto;
+  background: rgba(0,0,0,0.5);
+}
+.modalContent {
+  background: aliceblue;
+  margin: 3% auto;
+  padding: 30px;
+  width: 75%;
+  box-shadow: 0 5px 8px 0 rgba(0,0,0,0.5);
+  text-align: center;
+}
+.closeButton {
+  color: #ccc;
+  float: right;
+  font-size: 30px;
+}
+.closeButton:hover, .closeButton:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+/* End product modal */
 
 .product-detail {
   padding: 1em;

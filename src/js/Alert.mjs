@@ -29,22 +29,4 @@
             return;
         }
     }
-    // checkingResults() {
-    //     console.log(typeof this.file);
-    //     console.log("There is finally some progress!")
-    // }
-    };
-
-// function convertToJson(res) {
-//     if (res.ok) {
-//         console.log("There is some progress!")
-//       return res.json();
-//     } else {
-//       throw new Error("Bad Response");
-//     }
-//   }
-//  export default async function getData() {
-//       return fetch("../json/backpacks.json")
-//         .then(convertToJson)
-//         .then((data) => data);
-//     }
+};
