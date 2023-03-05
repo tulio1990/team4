@@ -96,7 +96,7 @@ header::after {
   margin-top: -1.3em;
 }
 
-.logo--square>div {
+.logo--square > div {
   margin-top: -1.7em;
 }
 
@@ -274,12 +274,12 @@ p.cart-total {
   border: 1px solid var(--light-grey);
   max-width: 250px;
   text-align: center;
-  transition: .5s ease-in-out;
+  transition: 0.5s ease-in-out;
 }
 
 .product-card:hover {
   background: aliceblue;
-  transform: scale(1.10);
+  transform: scale(1.1);
   box-shadow: 0 0 25px rgb(0 0 0 / 50%);
 }
 
@@ -314,7 +314,8 @@ p.cart-total {
 }
 
 .wishOn {
-  filter: invert(10%) sepia(100%) saturate(7500%) hue-rotate(360deg) brightness(103%) contrast(120%);
+  filter: invert(10%) sepia(100%) saturate(7500%) hue-rotate(360deg)
+    brightness(103%) contrast(120%);
 }
 /* .yellow {
   filter: invert(87%) sepia(38%) saturate(1725%) hue-rotate(350deg) brightness(111%) contrast(111%);
@@ -349,14 +350,14 @@ p.product-card__RegPrice {
   height: 100vh;
   width: 100%;
   overflow: auto;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
 }
 .modalContent {
   background: aliceblue;
   margin: 3% auto;
   padding: 30px;
   width: 75%;
-  box-shadow: 0 5px 8px 0 rgba(0,0,0,0.5);
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.5);
   text-align: center;
 }
 .closeButton {
@@ -364,7 +365,8 @@ p.product-card__RegPrice {
   float: right;
   font-size: 30px;
 }
-.closeButton:hover, .closeButton:focus {
+.closeButton:hover,
+.closeButton:focus {
   color: black;
   text-decoration: none;
   cursor: pointer;
@@ -435,7 +437,7 @@ p.product-card__RegPrice {
   text-align: right;
 }
 
-div.newsletter-container>* {
+div.newsletter-container > * {
   margin: 0.5em 0;
   text-align: center;
 }
